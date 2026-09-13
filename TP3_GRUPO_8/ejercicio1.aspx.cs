@@ -15,12 +15,24 @@ namespace TP3_GRUPO_8
             {
                 txtNombreLocalidad.Text = "";
                 txtNombreLocalidad.Focus();
+                LimpiarUsuario();
             }
         }
 
         protected void btnGuardarLocalidad_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void TxtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void LimpiarUsuario()
+        {
+            TxtNameUser.Text = "";
+            TxtPassword.Text = "";
+            TxtRepeatPswrd.Text = "";
         }
     }
 }
