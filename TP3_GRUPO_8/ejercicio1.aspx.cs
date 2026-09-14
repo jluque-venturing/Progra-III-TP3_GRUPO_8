@@ -33,6 +33,13 @@ namespace TP3_GRUPO_8
             TxtNameUser.Text = "";
             TxtPassword.Text = "";
             TxtRepeatPswrd.Text = "";
+            txtCP.Text = "";
+            txtMail.Text = "";
+        }
+
+        protected void btnGuardarUsuario_Click(object sender, EventArgs e)
+        {
+            lblBienvenido.Text = "Bienvenido " + TxtNameUser.Text;
         }
     }
 }

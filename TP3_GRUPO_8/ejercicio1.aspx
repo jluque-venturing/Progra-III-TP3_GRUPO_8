@@ -6,6 +6,11 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 138px;
+        }
+    </style>
 </head>
 <body style="height: 297px">
     <form id="form1" runat="server">
@@ -73,22 +78,51 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td>
+                         <asp:Label ID="Label5" runat="server" Text="Correo electrónico: "></asp:Label>
+                    </td>
                      <td>&nbsp;</td>
                     <td>
-                        &nbsp;</td>
+                        <asp:TextBox ID="txtMail" runat="server"></asp:TextBox>
+                    </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td>
+                         <asp:Label ID="Label6" runat="server" Text="CP: "></asp:Label>
+                    </td>
                      <td>&nbsp;</td>
                     <td>
-                        &nbsp;</td>
+                        <asp:TextBox ID="txtCP" runat="server"></asp:TextBox>
+                    </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Label ID="Label7" runat="server" Text="Localidades:"></asp:Label>
+                    </td>
                      <td>&nbsp;</td>
                     <td>
-                        &nbsp;</td>
+                        <asp:DropDownList ID="ddlLocalidades" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                            <asp:Button ID="btnGuardarUsuario" runat="server" Height="21px" OnClick="btnGuardarUsuario_Click" Text="Guardar Usuario" Width="135px" />
+
+                        </td>
+                        <td class="auto-style1">
+
+                            <asp:Label ID="lblBienvenido" runat="server"></asp:Label>
+
+                        </td>
+                    </tr>
+                    
                 </tr>
             </table>
         </div>
