@@ -41,5 +41,10 @@ namespace TP3_GRUPO_8
         {
             lblBienvenido.Text = "Bienvenido " + TxtNameUser.Text;
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx");
+        }
     }
 }
