@@ -68,7 +68,7 @@
                     </td>
                      <td class="auto-style2">&nbsp;</td>
                     <td>
-                        <asp:TextBox ID="TxtPassword" runat="server" TextMode="Password" OnTextChanged="TxtPassword_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="TxtPassword" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -104,7 +104,7 @@
                     </td>
                      <td class="auto-style2">&nbsp;</td>
                     <td>
-                        <asp:DropDownList ID="ddlLocalidades" runat="server">
+                        <asp:DropDownList ID="ddlLocalidades" runat="server" Height="16px" Width="168px">
                         </asp:DropDownList>
                     </td>
                     <tr>

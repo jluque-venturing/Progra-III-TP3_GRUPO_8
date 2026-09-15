@@ -21,13 +21,10 @@ namespace TP3_GRUPO_8
 
         protected void btnGuardarLocalidad_Click(object sender, EventArgs e)
         {
-
+            ddlLocalidades.Items.Add(txtNombreLocalidad.Text.ToString());
+            txtNombreLocalidad.Text = "";
         }
 
-        protected void TxtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void LimpiarUsuario()
         {
             TxtNameUser.Text = "";
