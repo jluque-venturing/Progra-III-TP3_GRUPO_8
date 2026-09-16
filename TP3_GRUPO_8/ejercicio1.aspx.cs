@@ -21,6 +21,9 @@ namespace TP3_GRUPO_8
 
         protected void btnGuardarLocalidad_Click(object sender, EventArgs e)
         {
+            // Validar que el campo de texto no esté vacío.
+            if ( !Page.IsValid ) return; 
+
             ddlLocalidades.Items.Add(txtNombreLocalidad.Text.ToString());
             txtNombreLocalidad.Text = "";
         }
