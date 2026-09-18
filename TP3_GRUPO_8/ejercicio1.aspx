@@ -14,9 +14,11 @@
         .auto-style2 {
             width: 10px;
         }
+
         .auto-style3 {
             height: 25px;
         }
+
         .auto-style4 {
             width: 10px;
             height: 25px;
@@ -27,9 +29,9 @@
     <form id="form1" runat="server">
         <div style="height: 189px">
             <table>
-                
-                <asp:ValidationSummary  ID="vsLocalidad" runat="server" ValidationGroup="Localidad" />
-                
+
+                <asp:ValidationSummary ID="vsLocalidad" runat="server" ValidationGroup="Localidad" />
+
                 <tr>
                     <td colspan="2">
                         <asp:Label ID="lblLocalidadesTitulo" runat="server" Font-Bold="True" Font-Size="Large" Text="Localidades"></asp:Label>
@@ -50,6 +52,18 @@
                             Text="Ingrese localidad"
                             ValidationGroup="Localidad">
                         </asp:RequiredFieldValidator>
+
+
+                        <asp:CustomValidator
+                            ID="cvLocalidadExistente"
+                            runat="server"
+                            ControlToValidate="txtNombreLocalidad"
+                            ValidationGroup="Localidad"
+                            ErrorMessage="Esa localidad ya existe"
+                            OnServerValidate="cvLocalidadExistente_ServerValidate">
+                        </asp:CustomValidator>
+
+
 
                     </td>
                 </tr>
