@@ -14,6 +14,13 @@
         .auto-style2 {
             width: 10px;
         }
+        .auto-style3 {
+            height: 25px;
+        }
+        .auto-style4 {
+            width: 10px;
+            height: 25px;
+        }
     </style>
 </head>
 <body style="height: 370px">
@@ -30,10 +37,10 @@
                 </tr>
                 <tr>
                     <td>Nombre de Localidad:</td>
-                    <td class="auto-style2"></td>
+                    <td class="auto-style2">&nbsp;</td>
                     <td>
 
-                        <asp:TextBox ID="txtNombreLocalidad" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNombreLocalidad" runat="server" OnTextChanged="txtNombreLocalidad_TextChanged"></asp:TextBox>
 
                         <asp:RequiredFieldValidator
                             ID="rfvLocalidad"
@@ -47,16 +54,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td class="auto-style2"></td>
-                    <td>
+                    <td class="auto-style3"></td>
+                    <td class="auto-style4"></td>
+                    <td class="auto-style3">
                         <asp:Button ID="btnGuardarLocalidad" runat="server" Text="Guardar Localidad" Font-Italic="False" Font-Names="Arial" Height="21px" Width="151px" OnClick="btnGuardarLocalidad_Click" ValidationGroup="Localidad" />
                     </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNombreLocalidad" ErrorMessage="Localidad rechazada, ingresa otra localidad" ValidationExpression="^[a-zA-Z0-9\sáéíóúÁÉÍÓÚñÑ\.\-]+$" ValidationGroup="Localidad"></asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>

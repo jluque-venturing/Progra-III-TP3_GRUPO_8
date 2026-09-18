@@ -24,7 +24,7 @@ namespace TP3_GRUPO_8
             // Validar que el campo de texto no esté vacío.
             if ( !Page.IsValid ) return; 
 
-            ddlLocalidades.Items.Add(txtNombreLocalidad.Text.ToString());
+            ddlLocalidades.Items.Add(txtNombreLocalidad.Text.Trim());
             txtNombreLocalidad.Text = "";
         }
 
@@ -45,6 +45,11 @@ namespace TP3_GRUPO_8
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Inicio.aspx");
+        }
+
+        protected void txtNombreLocalidad_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
