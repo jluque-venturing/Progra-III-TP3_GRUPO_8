@@ -53,7 +53,6 @@
                             ValidationGroup="Localidad">
                         </asp:RequiredFieldValidator>
 
-
                         <asp:CustomValidator
                             ID="cvLocalidadExistente"
                             runat="server"
@@ -62,8 +61,6 @@
                             ErrorMessage="Esa localidad ya existe"
                             OnServerValidate="cvLocalidadExistente_ServerValidate">
                         </asp:CustomValidator>
-
-
 
                     </td>
                 </tr>
