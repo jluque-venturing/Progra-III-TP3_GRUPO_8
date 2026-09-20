@@ -25,7 +25,25 @@
         }
         .auto-style5 {
             width: 138px;
-            height: 25px;
+            height: 42px;
+        }
+        .auto-style6 {
+            height: 42px;
+            width: 202px;
+        }
+        .auto-style7 {
+            width: 202px;
+        }
+        .auto-style8 {
+            height: 42px;
+            width: 143px;
+        }
+        .auto-style9 {
+            width: 143px;
+        }
+        .auto-style10 {
+            width: 10px;
+            height: 42px;
         }
     </style>
 </head>
@@ -33,8 +51,6 @@
     <form id="form1" runat="server">
         <div style="height: 189px">
             <table>
-
-                <asp:ValidationSummary ID="vsLocalidad" runat="server" ValidationGroup="Localidad" />
 
                 <tr>
                     <td colspan="2">
@@ -46,7 +62,7 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>
 
-                        <asp:TextBox ID="txtNombreLocalidad" runat="server" OnTextChanged="txtNombreLocalidad_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="txtNombreLocalidad" runat="server"></asp:TextBox>
 
                         <asp:RequiredFieldValidator
                             ID="rfvLocalidad"
@@ -54,8 +70,7 @@
                             ControlToValidate="txtNombreLocalidad"
                             ErrorMessage="Ingrese localidad"
                             Text="Ingrese localidad"
-                            ValidationGroup="Localidad">
-                        </asp:RequiredFieldValidator>
+                            ValidationGroup="Localidad" Display="Dynamic"></asp:RequiredFieldValidator>
 
                         <asp:CustomValidator
                             ID="cvLocalidadExistente"
@@ -63,8 +78,7 @@
                             ControlToValidate="txtNombreLocalidad"
                             ValidationGroup="Localidad"
                             ErrorMessage="Esa localidad ya existe"
-                            OnServerValidate="cvLocalidadExistente_ServerValidate">
-                        </asp:CustomValidator>
+                            OnServerValidate="cvLocalidadExistente_ServerValidate" Display="Dynamic"></asp:CustomValidator>
 
                     </td>
                 </tr>
@@ -116,7 +130,8 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>
                         <asp:TextBox ID="TxtRepeatPswrd" runat="server" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TxtRepeatPswrd" ErrorMessage="Campo obligatorio, inserta contraseña" ValidationGroup="Usuario"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TxtRepeatPswrd" ErrorMessage="Campo obligatorio, inserta contraseña" ValidationGroup="Usuario" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="comparePasswords" runat="server" ControlToCompare="TxtPassword" ControlToValidate="TxtRepeatPswrd" Display="Dynamic" ErrorMessage="Las contraseñas no coinciden" ValidationGroup="Usuario">Las contraseñas no coinciden</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -126,7 +141,8 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>
                         <asp:TextBox ID="txtMail" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtMail" ErrorMessage="Campo Obligatorio, inserta correo" ValidationGroup="Usuario"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtMail" ErrorMessage="Campo Obligatorio, inserta correo" ValidationGroup="Usuario" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="validarCorreo" runat="server" ControlToValidate="txtMail" Display="Dynamic" ErrorMessage="Ingrese un correo electrónico válido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="Usuario">Ingrese un correo electrónico válido</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -136,7 +152,8 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>
                         <asp:TextBox ID="txtCP" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCP" ErrorMessage="Campo Obligatorio, ingresa correo postal" ValidationGroup="Usuario"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCP" ErrorMessage="Campo Obligatorio, ingresa correo postal" ValidationGroup="Usuario" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="validarCP" runat="server" ControlToValidate="txtCP" Display="Dynamic" ErrorMessage="El CP debe tener 4 dígitos" ValidationExpression="^\d{4}$" ValidationGroup="Usuario">El CP debe tener 4 dígitos</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -145,44 +162,46 @@
                     </td>
                     <td class="auto-style2">&nbsp;</td>
                     <td>
-                        <asp:DropDownList ID="ddlLocalidades" runat="server" Height="16px" Width="168px" OnSelectedIndexChanged="ddlLocalidades_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddlLocalidades" runat="server" Height="16px" Width="168px">
                             <asp:ListItem>Sin Localidad</asp:ListItem>
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddlLocalidades" ErrorMessage="Campo Obligatorio, ingresa una localidad"></asp:RequiredFieldValidator>
                     </td>
+                    </tr>
+                </table>
+            <table>
                     <tr>
-                        <td class="auto-style3"></td>
-                        <td class="auto-style4"></td>
-                        <td class="auto-style3">
+                        <td class="auto-style8"></td>
+                        <td class="auto-style10"></td>
+                        <td class="auto-style6">
 
                             <asp:Button ID="btnGuardarUsuario" runat="server" Height="21px" OnClick="btnGuardarUsuario_Click" Text="Guardar Usuario" Width="135px" ValidationGroup="Usuario" />
 
                         </td>
                         <td class="auto-style5">
 
-                            <asp:Label ID="lblBienvenido" runat="server"></asp:Label>
+                            <asp:Label ID="lblBienvenido" runat="server" Font-Bold="True"></asp:Label>
 
                         </td>
                     </tr>
 
-                </tr>
+                
                 <tr>
-                    <td>&nbsp;</td>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>
-                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="Usuario" />
-                    </td>
-                    <td class="auto-style1">&nbsp;</td>
+                    <td class="auto-style7">
+                        &nbsp;</td>
+                    <td class="auto-style1"></td>
                 </tr>
 
                 <tr>
-                    <td>
+                    <td class="auto-style9">
 
                         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="ir a Inicio.aspx" Width="141px" />
 
                     </td>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
                 </tr>
 

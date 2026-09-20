@@ -49,10 +49,6 @@ namespace TP3_GRUPO_8
             Response.Redirect("Inicio.aspx");
         }
 
-        protected void txtNombreLocalidad_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         // Metodo para la validacion
         protected void cvLocalidadExistente_ServerValidate(object source, ServerValidateEventArgs args)
         {
@@ -72,11 +68,6 @@ namespace TP3_GRUPO_8
             }
             // Si la localidad no esta en la lista la agrega
             args.IsValid = true;
-        }
-
-        protected void ddlLocalidades_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
