@@ -39,6 +39,8 @@ namespace TP3_GRUPO_8
 
         protected void btnGuardarUsuario_Click(object sender, EventArgs e)
         {
+            if (!Page.IsValid) return;
+
             lblBienvenido.Text = "Bienvenido " + TxtNameUser.Text;
         }
 
@@ -70,6 +72,11 @@ namespace TP3_GRUPO_8
             }
             // Si la localidad no esta en la lista la agrega
             args.IsValid = true;
+        }
+
+        protected void ddlLocalidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

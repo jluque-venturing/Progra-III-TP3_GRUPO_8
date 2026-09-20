@@ -23,6 +23,10 @@
             width: 10px;
             height: 25px;
         }
+        .auto-style5 {
+            width: 138px;
+            height: 25px;
+        }
     </style>
 </head>
 <body style="height: 370px">
@@ -92,6 +96,7 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>
                         <asp:TextBox ID="TxtNameUser" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TxtNameUser" ErrorMessage="Campo Obligatorio, inserta nombre de usuario." ValidationGroup="Usuario"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -101,6 +106,7 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>
                         <asp:TextBox ID="TxtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TxtPassword" ErrorMessage="Campo Obligatorio, Inserta contraseña" ValidationGroup="Usuario"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -110,6 +116,7 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>
                         <asp:TextBox ID="TxtRepeatPswrd" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TxtRepeatPswrd" ErrorMessage="Campo obligatorio, inserta contraseña" ValidationGroup="Usuario"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -119,6 +126,7 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>
                         <asp:TextBox ID="txtMail" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtMail" ErrorMessage="Campo Obligatorio, inserta correo" ValidationGroup="Usuario"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -128,6 +136,7 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>
                         <asp:TextBox ID="txtCP" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCP" ErrorMessage="Campo Obligatorio, ingresa correo postal" ValidationGroup="Usuario"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -136,18 +145,20 @@
                     </td>
                     <td class="auto-style2">&nbsp;</td>
                     <td>
-                        <asp:DropDownList ID="ddlLocalidades" runat="server" Height="16px" Width="168px">
+                        <asp:DropDownList ID="ddlLocalidades" runat="server" Height="16px" Width="168px" OnSelectedIndexChanged="ddlLocalidades_SelectedIndexChanged">
+                            <asp:ListItem Value="0">Sin Localidad</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddlLocalidades" ErrorMessage="Campo Obligatorio, ingresa una localidad"></asp:RequiredFieldValidator>
                     </td>
                     <tr>
-                        <td></td>
-                        <td class="auto-style2"></td>
-                        <td>
+                        <td class="auto-style3"></td>
+                        <td class="auto-style4"></td>
+                        <td class="auto-style3">
 
-                            <asp:Button ID="btnGuardarUsuario" runat="server" Height="21px" OnClick="btnGuardarUsuario_Click" Text="Guardar Usuario" Width="135px" />
+                            <asp:Button ID="btnGuardarUsuario" runat="server" Height="21px" OnClick="btnGuardarUsuario_Click" Text="Guardar Usuario" Width="135px" ValidationGroup="Usuario" />
 
                         </td>
-                        <td class="auto-style1">
+                        <td class="auto-style5">
 
                             <asp:Label ID="lblBienvenido" runat="server"></asp:Label>
 
@@ -158,7 +169,9 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="Usuario" />
+                    </td>
                     <td class="auto-style1">&nbsp;</td>
                 </tr>
 
