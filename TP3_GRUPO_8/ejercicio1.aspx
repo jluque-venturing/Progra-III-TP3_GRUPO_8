@@ -146,7 +146,7 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>
                         <asp:DropDownList ID="ddlLocalidades" runat="server" Height="16px" Width="168px" OnSelectedIndexChanged="ddlLocalidades_SelectedIndexChanged">
-                            <asp:ListItem Value="0">Sin Localidad</asp:ListItem>
+                            <asp:ListItem>Sin Localidad</asp:ListItem>
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddlLocalidades" ErrorMessage="Campo Obligatorio, ingresa una localidad"></asp:RequiredFieldValidator>
                     </td>
